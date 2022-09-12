@@ -30,6 +30,12 @@ public class Customer {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+	
+	public Customer(String firstName, String lastName,String address) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+	}
 
 	@Override
 	public String toString() {
