@@ -16,6 +16,7 @@ public class AccessingDataJpaApplication {
 		SpringApplication.run(AccessingDataJpaApplication.class);
 	}
 
+	/*
 	@Bean
 	public CommandLineRunner demo(CustomerRepository repository) {
 		return (args) -> {
@@ -54,5 +55,5 @@ public class AccessingDataJpaApplication {
 			log.info("");
 		};
 	}
-
+*/
 }
