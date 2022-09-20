@@ -6,19 +6,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.accessingdatajpa.Customer;
 import com.example.accessingdatajpa.CustomerRepository;
+import com.example.accessingdatajpa.service.CustomerService;
 
 
 
 @RestController
 public class CustomerController {
 	
-	@Autowired  
-	private CustomerRepository repo ;
+
+	
+	@Autowired
+	private CustomerService service;
 	
 	@RequestMapping("/allrecord")
-	public Iterable<Customer> getAllCustomer() {
+	
+	public String getAllCustomer() {
 		
-		return repo.findAll();
+		Iterable<Customer> obj = service.getAllCustomer();
+		
+		//lambda (1.8)   - >  function pointer 
+		
+		//FunctionalInterface    only one single abstract method 
+		
+		return "Success";
 	}
 
 }
+
+
