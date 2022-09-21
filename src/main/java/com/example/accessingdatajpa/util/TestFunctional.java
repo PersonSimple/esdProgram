@@ -2,6 +2,7 @@ package com.example.accessingdatajpa.util;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 @FunctionalInterface
 interface MyFunction {
@@ -49,6 +50,10 @@ public class TestFunctional {
 	numbers.add(25);
 	numbers.add(35);
 	
+	
+	
+	
+	
 	for (int i=0; i< numbers.size();i++) 
 	  {
 		System.out.println(" index at " + numbers.get(i));
@@ -68,6 +73,8 @@ public class TestFunctional {
 		}
      });
 	                    
-	  numbers.forEach(   x ->  System.out.println(x));
+	  numbers.forEach( x ->  System.out.println(x));
      }
+      
+      
 }
