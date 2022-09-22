@@ -3,6 +3,7 @@ package com.example.accessingdatajpa.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,6 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepository repository;
 
-	
 	
 	public Optional<Customer> getCustomerById(Long id) {
 		return repository.findById(id);
