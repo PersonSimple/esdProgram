@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.accessingdatajpa.Customer;
+import com.example.accessingdatajpa.model.Customer;
 import com.example.accessingdatajpa.service.CustomerService;
 
 @RestController

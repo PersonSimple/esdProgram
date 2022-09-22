@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.accessingdatajpa.Customer;
-import com.example.accessingdatajpa.CustomerRepository;
+import com.example.accessingdatajpa.model.Customer;
+import com.example.accessingdatajpa.repository.CustomerRepository;
 
 @Service
 public class CustomerService {

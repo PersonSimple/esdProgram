@@ -1,4 +1,4 @@
-package com.example.accessingdatajpa;
+package com.example.accessingdatajpa.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +9,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Customer {
-	
-   
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
@@ -28,7 +26,6 @@ public class Customer {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -38,7 +35,6 @@ public class Customer {
 	}
 
 	private String lastName;
-
 	protected Customer() {}
 
 	public Customer(String firstName, String lastName) {
