@@ -2,6 +2,8 @@ package com.example.accessingdatajpa.cotrollers;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,8 @@ import com.example.accessingdatajpa.service.CustomerService;
 
 @RestController
 public class CustomerController {
+	
+	private static final Logger log = LoggerFactory.getLogger(CustomerController.class);
 
 	@Autowired
 	private CustomerService service;
@@ -75,8 +79,9 @@ public class CustomerController {
 
 	@PutMapping("/updateCustomer/{id}")
 	public void updateCustomer(@RequestBody Customer newCustomer, @PathVariable("id") Long id) {
+		log.info("Updating the customer record " + newCustomer);
 		service.updateCustomer(newCustomer, id);
-
+        
 	}
 
 }

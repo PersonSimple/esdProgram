@@ -1,5 +1,7 @@
 package com.example.accessingdatajpa.model;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Customer {
+public class Customer extends Object {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id; 
@@ -48,11 +50,12 @@ public class Customer {
 		this.address = address;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return String.format(
-				"Customer[id=%d, firstName='%s', lastName='%s']",
-				id, firstName, lastName);
+		return "Customer [id=" + id + ", firstName=" + firstName + ", address=" + address + ", lastName=" + lastName
+				+ "]";
 	}
 
 	public Long getId() {
@@ -66,4 +69,23 @@ public class Customer {
 	public String getLastName() {
 		return lastName;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(address, firstName, id, lastName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		return Objects.equals(address, other.address) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(id, other.id) && Objects.equals(lastName, other.lastName);
+	}
+	
 }

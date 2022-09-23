@@ -1,14 +1,11 @@
 package com.example.accessingdatajpa.service;
 
 import java.util.Optional;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
+
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.accessingdatajpa.model.Customer;
 import com.example.accessingdatajpa.repository.CustomerRepository;
@@ -16,7 +13,7 @@ import com.example.accessingdatajpa.repository.CustomerRepository;
 @Service
 public class CustomerService {
 	
-	
+	private static final Logger log = LoggerFactory.getLogger(CustomerService.class);
 	
 	@Autowired
 	private CustomerRepository repository;
@@ -32,7 +29,7 @@ public class CustomerService {
 	}
 
 	
-	public  String addCustomer(@RequestBody Customer customer) {
+	public  String addCustomer( Customer customer) {
 		repository.save(customer);
 		return " saved ";
 
@@ -45,6 +42,8 @@ public class CustomerService {
 	
 
 	public  String updateCustomer(Customer newCustomer ,Long id) {
+		
+		log.info("Updating the record for id "+ id + " Customer " + newCustomer.toString()) ;
 		 
 		  Customer customer = repository.findById(id).get();
 		  
@@ -53,7 +52,11 @@ public class CustomerService {
 		  customer.setLastName(newCustomer.getLastName());
 		  
 		  repository.save(customer);
+		  log.info("Customer Updated ") ;
 		 return "updated";
 	}
+	
+	
+	
 	
 }
