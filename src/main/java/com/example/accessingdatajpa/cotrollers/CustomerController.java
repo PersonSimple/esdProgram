@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.accessingdatajpa.model.Customer;
 import com.example.accessingdatajpa.service.CustomerService;
 
+ 
+
 @RestController
 public class CustomerController {
 	
@@ -80,7 +82,12 @@ public class CustomerController {
 	@PutMapping("/updateCustomer/{id}")
 	public void updateCustomer(@RequestBody Customer newCustomer, @PathVariable("id") Long id) {
 		log.info("Updating the customer record " + newCustomer);
+		try {
 		service.updateCustomer(newCustomer, id);
+		
+		 }catch (Exception ex) {
+			log.error("new Cutomer not saved " + newCustomer );
+		}
         
 	}
 

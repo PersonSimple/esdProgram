@@ -20,6 +20,7 @@ public class CustomerService {
 
 	
 	public Optional<Customer> getCustomerById(Long id) {
+	
 		return repository.findById(id);
 	}
 
@@ -43,7 +44,7 @@ public class CustomerService {
 
 	public  String updateCustomer(Customer newCustomer ,Long id) {
 		
-		log.info("Updating the record for id "+ id + " Customer " + newCustomer.toString()) ;
+		  log.info("Updating the record for id "+ id + " Customer " + newCustomer.toString()) ;
 		 
 		  Customer customer = repository.findById(id).get();
 		  
@@ -52,9 +53,11 @@ public class CustomerService {
 		  customer.setLastName(newCustomer.getLastName());
 		  
 		  repository.save(customer);
+		  
 		  log.info("Customer Updated ") ;
 		 return "updated";
 	}
+	
 	
 	
 	
