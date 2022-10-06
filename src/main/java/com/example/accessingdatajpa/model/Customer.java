@@ -6,10 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 
-@Entity
+@Entity 
 public class Customer extends Object {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -17,6 +18,12 @@ public class Customer extends Object {
 	
 	private String firstName;
 	private String address;
+	
+
+	private String lastName;
+	
+	
+	
 	public String getAddress() {
 		return address;
 	}
@@ -36,7 +43,7 @@ public class Customer extends Object {
 		this.lastName = lastName;
 	}
 
-	private String lastName;
+	
 	protected Customer() {}
 
 	public Customer(String firstName, String lastName) {
