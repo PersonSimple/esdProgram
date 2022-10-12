@@ -56,9 +56,9 @@ public class AngleController {
 	 * @return
 	 */
 	@PostMapping("/addAngle")
-	public @ResponseBody String addAngle(@RequestBody Angle angle) {
-		service.addAngle(angle);
-		return " saved ";
+	public @ResponseBody Angle addAngle(@RequestBody Angle angle) {
+		return service.addAngle(angle);
+		
 
 	}
 
