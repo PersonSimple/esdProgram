@@ -5,23 +5,26 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.accessingdatajpa.model.Angle;
-import com.example.accessingdatajpa.model.Customer;
 import com.example.accessingdatajpa.service.AngleService;
-import com.example.accessingdatajpa.service.CustomerService;
 
  
 
+//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("/api")
 public class AngleController {
 	
 	private static final Logger log = LoggerFactory.getLogger(AngleController.class);
@@ -33,9 +36,13 @@ public class AngleController {
 	 * Read single customer information
 	 * 
 	 * @return
+	 * @throws Exception 
 	 */
-	@GetMapping("/getAngleById/{id}")
-	public Optional<Angle> getAngleById(@PathVariable("id") Long id) {
+	//http://localhost:8080/api/getAngleById/{id} (interface for the rest api)
+	
+		
+    @GetMapping("/getAngleById/{id}")
+	public Optional<Angle> getAngleById(@PathVariable("id") Long id) throws Exception {
 		return service.getAngleById(id);
 	}
 
@@ -44,6 +51,8 @@ public class AngleController {
 	 * 
 	 * @return
 	 */
+	//
+	
 	@GetMapping("/allAngleRecord")
 	public Iterable<Angle> getAllAngle() {
 		return service.getAllAngle();

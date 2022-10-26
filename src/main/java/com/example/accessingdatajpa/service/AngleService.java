@@ -4,7 +4,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.example.accessingdatajpa.model.Angle;
@@ -13,7 +13,7 @@ import com.example.accessingdatajpa.repository.AngleRepository;
 import com.example.accessingdatajpa.repository.CustomerRepository;
 
 @Service
-public class AngleService {
+public class AngleService implements IAngelService {
 	
 	private static final Logger log = LoggerFactory.getLogger(AngleService.class);
 	
@@ -21,7 +21,7 @@ public class AngleService {
 	private AngleRepository repository;
 
 	
-	public Optional<Angle> getAngleById(Long id) {
+	public Optional<Angle> getAngleById(Long id) throws Exception {
 	
 		return repository.findById(id);
 	}
