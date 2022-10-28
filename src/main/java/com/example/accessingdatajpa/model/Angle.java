@@ -16,12 +16,17 @@ import org.hibernate.annotations.GeneratorType;
 @Entity (name = "ESD_ANGLE")
 public class Angle {
 	
+  // detach state 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 	
 	private String email;
 	
+	private String address;
+	private String contact;
+	
+
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "interest_id", referencedColumnName = "id")
 	private InterestArea interestArea;
@@ -42,6 +47,23 @@ public class Angle {
 		this.email = email;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	
 	public InterestArea getInterestArea() {
 		return interestArea;
 	}
